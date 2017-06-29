@@ -26,7 +26,6 @@
 {% block excerpt %}
     {% if p.header.excerpt and excerpt == 'true' %}
         <div class="excerpt">
-            <div class="divider"></div>
             <p class="header">Excerpt</p>
             {{ p.header.excerpt|markdown }}
         </div>
@@ -35,8 +34,6 @@
 
 {% block reviews %}
     {% if reviews == 'true' %}
-    <div class="divider">
-    </div>
 
     <div class="reviews">
         <div class="panel">

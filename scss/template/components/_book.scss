@@ -1,6 +1,14 @@
 .book-page {
   font-size: 85%;
 
+  & > div {
+    margin-top: 1.75rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
   .header {
     color: $colors-header-text;
     text-shadow: 0 0 3px $colors-header-glow;
@@ -101,41 +109,6 @@
 
   }
 
-  .divider {
-    width: 75%;
-    height: 1px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    background-color: $colors-header-text;
-    position: relative;
-    @include breakpoint(medium down) {
-      display: none;
-    }
-
-    &:after {
-      position: absolute;
-      height: 1.5vh;
-      padding-top: -1.5vh;
-      content: ' ';
-      width: 100%;
-      display: block;
-      box-shadow: inset 0 8px 8px -6px rgba($colors-header-text,0.25);
-    }
-
-    &:before {
-      position: absolute;
-      top: -1.5vh;
-      height: 1.5vh;
-      padding-top: -1.5vh;
-      content: ' ';
-      width: 100%;
-      display: block;
-      box-shadow: inset 0 -8px 8px -6px rgba($colors-header-text,0.25);
-    }
-  }
-
   .reviews {
 
     .panel {
@@ -233,7 +206,11 @@
     .review {
       padding-left: 2.75rem;
       padding-right: 2.75rem;
-      border-top: none !important;
+      border-top: none;
+
+      p {
+        color: $colors-review-text;
+      }
     }
 
     .content.orbit {
