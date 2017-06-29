@@ -1,0 +1,101 @@
+// Colors
+
+$footer-header-font-color: $baby-blue;
+$footer-header-border-color: rgba($baby-blue,0.35);
+$footer-header-glow: glowify($baby-blue,15,10);
+$footer-header-accent-glow: rgba($baby-blue,0.15);
+
+$footer-panel-font-color: rgba($baby-blue,0.45);
+$footer-attribution-font-color: $bright-grey;
+
+$footer-background-color: $translucent-midnight-blue;
+$footer-panel-background-color: $translucent-very-dark-blue;
+$footer-attribution-background-color: $blue-black;
+
+// Other Settings
+
+// SASS
+
+.footer-wrapper {
+  margin-top: 4vmin;
+  padding-top: 2vmin;
+  padding-bottom: 2vmin;
+  background-color: $footer-background-color;
+  width: 100%;
+  font-family: "Lato", sans-serif;
+  color: $footer-panel-font-color;
+
+  .footer-panel {
+    background-color: $footer-panel-background-color;
+    background-clip: content-box;
+    overflow: hidden;
+    @include breakpoint(medium down) {
+      margin-bottom: 0px;
+    }
+  }
+
+  @include breakpoint(large) {
+    .footer-content {
+      display: flex;
+      align-items: stretch;
+      flex-direction: row;
+    }
+  }
+
+  .footer-panel-content {
+    height: 100%;
+    padding: 2rem;
+
+    h1 {
+      color: $footer-panel-font-color;
+      font-family: "Francois One", sans-serif;
+      letter-spacing: 2px;
+      font-size: 175%;
+      display: block;
+      // border-bottom: 1px solid $footer-header-border-color;
+      // text-shadow: 0 0 2px $footer-header-glow;
+      position: relative;
+      @include breakpoint(medium down) {
+        font-size: 135%;
+      }
+
+      // &:after {
+      //   height: 8px;
+      //   width: 100%;
+      //   padding-bottom: -8px;
+      //   position: absolute;
+      //   content: ' ';
+      //   display: block;
+      //   box-shadow: inset 0 8px 8px -4px $footer-header-accent-glow;
+      // }
+
+      &:first-child {
+        margin-top: 0px;
+      }
+    }
+
+    p {
+      font-size: 90%;
+    }
+  }
+}
+
+.footer-attribution-wrapper {
+  background-color: $footer-attribution-background-color;
+  color: $footer-attribution-font-color;
+  text-align: center;
+  font-size: 12pt;
+  @include breakpoint(medium down) {
+    font-size: 1.75vmin;
+  }
+
+  .footer-attribution-content {
+
+    .footer-attribution {
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

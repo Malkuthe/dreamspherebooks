@@ -1,0 +1,33 @@
+.pagination-wrap {
+  background-color: $colors-panel-background;
+  padding: 1.5rem;
+  width: 40%;
+  margin-top: 8vh;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 8px 3px $colors-review-background;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .pagination {
+    margin-bottom: 0;
+    //background-color: rgba($baby-blue,0.15);
+
+    li {
+
+      a {
+        color: $off-white;
+        transition: 0.35s;
+
+        &:hover {
+          background-color: rgba(lighten($baby-blue,20),0.2);
+        }
+
+        &.active {
+          background-color: rgba($colors-accent-text,0.4);
+        }
+      }
+    }
+  }
+}

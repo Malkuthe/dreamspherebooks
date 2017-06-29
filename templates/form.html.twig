@@ -1,0 +1,29 @@
+{% extends 'default.html.twig' %}
+
+{% block child_stylesheets %}
+    {{ parent() }}
+    {% do assets.addCSS('theme://node_modules/malkuthe-pikaday/css/pikaday.css',1) %}
+{% endblock %}
+
+{% block child_javascripts %}
+    {{ parent() }}
+    {% do assets.addJs('theme://node_modules/moment/moment.js',{'priority':98,'loading':'async','group':'bottom'}) %}
+    {% do assets.addJs('theme://node_modules/malkuthe-pikaday/pikaday.js',{'priority':97,'loading':'async','group':'bottom'}) %}
+    {% do assets.addJs('theme://node_modules/malkuthe-pikaday/plugins/pikaday.jquery.js',{'priority':96,'loading':'async','group':'bottom'}) %}
+    {% do assets.addJs('theme://js/datepicker.js',{'priority':95,'loading':'async','group':'bottom'}) %}
+{% endblock %}
+
+{% block content %}
+
+      <div class="content form wrap">
+          <div class="row">
+              <div class="large-6 small-12 columns">
+                  {% include 'forms/form.html.twig' %}
+              </div>
+              <div class="large-6 small-12 columns">
+                  {{ content }}
+              </div>
+          </div>
+      </div>
+
+{% endblock %}

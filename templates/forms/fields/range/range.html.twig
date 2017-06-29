@@ -1,0 +1,27 @@
+{% extends "forms/field.html.twig" %}
+
+{% block prepend %}
+    {% if field.validate.min %}
+        <div class="range-min">
+            {{ field.validate.min }}
+        </div>
+    {% elseif field.validate.min == 0 %}
+        <div class="range-min">0</div>
+    {% endif %}
+{% endblock %}
+
+{% block input_attributes %}
+    type="range"
+    {% if field.validate.min %}min="{{ field.validate.min }}"{% endif %}
+    {% if field.validate.max %}max="{{ field.validate.max }}"{% endif %}
+    {% if field.validate.step %}step="{{ field.validate.step }}"{% endif %}
+    {{ parent() }}
+{% endblock %}
+
+{% block append %}
+    {% if field.validate.max %}
+        <div class="range-max">
+            {{ field.validate.max }}
+        </div>
+    {% endif %}
+{% endblock %}

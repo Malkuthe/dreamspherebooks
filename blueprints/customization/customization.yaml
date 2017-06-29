@@ -1,0 +1,29 @@
+title: Customization
+parent: aerendur
+components:
+  -
+    name: foundation-sites
+    path: /bower_components/foundation-sites/scss
+  -
+    name: motion-ui
+    path: /bower_components/motion-ui/scss
+
+form:
+  fields:
+
+    customization.text:
+      type: text
+      label: Customization
+      validate:
+        type: text
+
+    customization.enabled:
+      type: toggle
+      label: Enabled
+      highlight: 1
+      default: 0
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool

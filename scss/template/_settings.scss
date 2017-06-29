@@ -1,0 +1,36 @@
+// Sizes
+$checkbox-height: 28px;
+$checkbox-width: 28px;
+
+// Color Variables
+
+$bright-blue: rgba(90,174,231,1.0);
+$pale-blue: rgba(180,235,255,1.0);
+$very-pale-blue: rgba(205,242,255,1.0);
+$baby-blue: rgba(180,200,255,0.95);
+$bright-grey: rgba(210,210,210,0.8);
+$soft-cyan: rgba(104,219,199,0.9);
+$very-soft-cyan: rgba(125,224,207,0.9);
+$blue-black: rgba(2,5,7,0.95);
+$off-white: rgba(240,240,240,1);
+
+$translucent-black: rgba(10,10,10,0.6);
+$translucent-midnight-blue: rgba(4,10,13,0.95);
+$translucent-very-dark-blue: rgba(2,4,8,0.6);
+
+$colors-warning-text: rgba(136,51,51,0.9);
+$colors-warning-hover: rgba(173,65,65,0.9);
+
+// FRONTPAGE
+
+$colors-header-text: $pale-blue;
+$colors-body-text: $bright-grey;
+$colors-accent-text: $soft-cyan;
+
+$colors-header-glow: glowify($colors-header-text,15,10);
+$colors-accent-glow: glowify($colors-accent-text,15,10);
+
+$colors-panel-background: $translucent-black;
+$colors-review-background: $translucent-very-dark-blue;
+$colors-review-accent-text: rgba($baby-blue,0.15);
+$colors-review-text: $baby-blue;

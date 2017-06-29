@@ -1,0 +1,21 @@
+{% extends 'default.html.twig' %}
+
+{% set collection = page.collection() %}
+
+{% block content %}
+    <div class="content wrap book-page booklist-page">
+        <div class="header">{{ page.title }}</div>
+        {{ page.content }}
+    </div>
+    {% for p in collection %}
+        <div class="content wrap book-page">
+            {% include 'partials/book.html.twig' with {'p':p,'reviews':'false','excerpt':'false'} %}
+        </div>
+    {% endfor %}
+
+    {% if config.plugins.pagination.enabled and collection.params.pagination %}
+        <div class="pagination-wrap">
+            {% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
+        </div>
+    {% endif %}
+{% endblock content %}

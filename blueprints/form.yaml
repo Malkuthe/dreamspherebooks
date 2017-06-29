@@ -1,0 +1,4 @@
+title: Form
+@extends:
+  type: default
+  context: blueprints://pages

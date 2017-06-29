@@ -1,0 +1,15 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block child_javascripts %}
+    {% if not isMobile() %}
+        {% do assets.addJs('theme://js/background.js',{'priority':100,'loading':'async','group':'bottom'}) %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {{ parent() }}
+    {% set collection = page.collection %}
+  <div class="content wrap default-page">
+    {{ content }}
+  </div>
+{% endblock content %}

@@ -1,0 +1,40 @@
+.social-media {
+  a {
+    all: unset;
+
+    &:hover {
+      all: unset;
+    }
+  }
+
+  ul {
+    margin: 0;
+    margin-top: -1rem;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    li {
+      display: inline-block;
+      margin-right: 0.5rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      a {
+
+        i {
+          transition: color 0.35s ease;
+
+          &:hover {
+            color: $bright-blue;
+          }
+        }
+
+      }
+    }
+
+  }
+}

@@ -1,0 +1,12 @@
+/**
+ * Transforms a colour to be used as a glow effect
+ *
+ * @param {[color]} $colour     [colour to be transformed]
+ * @param {[int]}   $lighten    [percentage to lighten]
+ * @param {[int]}   $desaturate [percentage to desaturate]
+ */
+@function glowify($colour, $lighten, $desaturate) {
+  $output: lighten( $colour, $lighten );
+  $output: desaturate( $output, $desaturate );
+  @return $output;
+}

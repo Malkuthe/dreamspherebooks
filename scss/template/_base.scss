@@ -1,0 +1,35 @@
+.off-canvas-wrapper-inside {
+  transition: 0.35s;
+}
+
+body {
+  font-size: 14pt;
+  font-family: "Lato", sans-serif;
+  @include breakpoint(medium down) {
+    font-size: 2.75vmax;
+  }
+}
+
+.content {
+  p, h1, h2, h3, h4, h5, h6, span, div, blockquote, ul, ol, li, table, td, tr, th {
+    color: $bright-grey;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $off-white;
+  }
+}
+
+.float-right {
+  float:right;
+  margin-left: 1rem;
+}
+
+.wrap {
+  background-color: $colors-panel-background;
+  padding: 1.5rem;
+  width: 100%;
+  box-shadow: 0 0 8px 3px $colors-review-background;
+
+  margin-top: 8vh;
+}

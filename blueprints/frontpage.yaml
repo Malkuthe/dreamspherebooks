@@ -1,0 +1,63 @@
+title: Frontpage
+@extends:
+  type: default
+  context: blueprints://pages
+
+form:
+  validation: loose
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+
+          fields:
+            header.monster:
+              classes: frontmatter
+              type: editor
+              label: Data
+              autofocus: true
+              codemirror:
+                mode: 'yaml frontmatter'
+                indentUnit: 4
+                autofocus: true
+                indentWithTabs: false
+                lineNumbers: true
+                styleActiveLine: true
+                gutters: ['CodeMirror-lint-markers']
+                lint: true
+
+            header.title:
+              type: text
+              style: vertical
+              label: PLUGIN_ADMIN.TITLE
+
+            content:
+              @unset: true
+
+            header.motto:
+              label: Motto
+              type: textarea
+              style: vertical
+              size: long
+              validate:
+                type: textarea
+
+            header.blurb:
+              label: Blurb
+              type: markdown
+              validate:
+                type: textarea
+
+            header.logo:
+              type: pagemediaselect
+              label: Logo Image
+
+            uploads:
+              type: pagemedia
+              label: PLUGIN_ADMIN.PAGE_MEDIA
+              ordering@: 1000

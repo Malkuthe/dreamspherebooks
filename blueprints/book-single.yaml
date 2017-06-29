@@ -1,0 +1,148 @@
+title: Book Single
+@extends:
+  type: default
+  context: blueprints://pages
+
+form:
+  validation: loose
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+
+          fields:
+
+            header.title:
+              @unset: true
+
+            columns:
+              type: columns
+              fields:
+
+                col1:
+                  type: column
+                  fields:
+                    header.title:
+                      type: text
+                      autofocus: true
+                      style: vertical
+                      label: PLUGIN_ADMIN.TITLE
+                      validate:
+                        required: true
+
+                col2:
+                  type: column
+                  fields:
+                    header.featured.enabled:
+                      type: toggle
+                      label: Featured
+                      highlight: 1
+                      default: 0
+                      options:
+                        1: Enabled
+                        0: Disabled
+                      validate:
+                        type: bool
+
+
+            header.taxonomy.tag:
+              type: selectize
+              label: Tag
+              classes: fancy
+              default: book
+              validate:
+                type: commalist
+
+            content:
+              @unset: true
+
+            header.author:
+              label: Author
+              type: text
+              style: vertical
+              validate:
+                type: textarea
+                required: true
+
+            header.logLine:
+              label: Log Line
+              type: text
+              style: vertical
+              validate:
+                type: textarea
+
+            header.summary:
+              label: Book Blurb
+              type: markdown
+              validate:
+                type: textarea
+                required: true
+
+            header.excerpt:
+              label: Book Excerpt
+              type: markdown
+              validate:
+                type: textarea
+
+            header.buylink:
+              label: Product Link
+              help: Input a URL pointing to a page where a visitor could buy the product.
+              type: text
+              validate:
+                type: text
+
+            header.cover.image:
+              type: pagemediaselect
+              label: Cover Image
+
+            header.cover.align:
+              type: toggle
+              label: Cover Alignment
+              highlight: left
+              default: left
+              options:
+                left: Left
+                right: Right
+              validate:
+                type: text
+
+
+            uploads:
+              type: pagemedia
+              label: PLUGIN_ADMIN.PAGE_MEDIA
+              ordering@: 1000
+
+            header.reviews:
+              label: Reviews
+              type: list
+              ordering@: 1001
+              fields:
+                .review:
+                  label: Review
+                  type: markdown
+                  validate:
+                    type: textarea
+                .reviewer:
+                  label: Reviewer
+                  type: text
+                  validate:
+                    type: text
+
+        options:
+          type: tab
+          title: PLUGIN_ADMIN.OPTIONS
+
+          fields:
+            taxonomies:
+              type: section
+              title: PLUGIN_ADMIN.TAXONOMIES
+              underline: true
+
+              fields:
+                header.taxonomy:
+                  @unset: true
