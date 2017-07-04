@@ -3,7 +3,7 @@
 {% block content %}
 
   <div class="content book-page wrap">
-    {% include 'partials/book.html.twig' with {'p':page} %}
+    {% include 'partials/book.html.twig' with {'p':page,'reviews':page.header.show_reviews,'excerpts':page.header.show_excerpts} %}
   </div>
 
 {% endblock content %}

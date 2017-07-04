@@ -133,6 +133,28 @@ form:
                   validate:
                     type: text
 
+            header.show_reviews:
+              type: toggle
+              label: Show Reviews
+              highlight: 1
+              default: 1
+              options:
+                1: Enabled
+                0: Disabled
+              validate:
+                type: bool
+
+            header.show_excerpts:
+              type: toggle
+              label: Show Excerpts
+              highlight: 1
+              default: 1
+              options:
+                1: Enabled
+                0: Disabled
+              validate:
+                type: bool
+
         options:
           type: tab
           title: PLUGIN_ADMIN.OPTIONS
