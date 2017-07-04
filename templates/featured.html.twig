@@ -1,0 +1,42 @@
+{% extends 'default.html.twig' %}
+
+{% set show_reviews = page.header.show_reviews %}
+{% set show_excerpts = page.header.show_excerpts %}
+
+{% block content %}
+    <div class="featured">
+        {% block card %}
+
+            <div class="card wrap row" data-equalizer="card" data-equalize-on="large">
+                {% if page.header.logo %}
+                    <div class="logo-container small-12 large-4 columns large-push-8" >
+                        <div class="logo" data-equalizer-watch="card" >
+                            <img src="/{{ page.slug }}/{{ page.header.logo }}" alt="{{ page.title ~ ' logo' }}" />
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="content {{ page.header.logo ? 'small-12 large-8 large-pull-4' : 'small-12' }} columns" data-equalizer-watch="card" >
+                    {% if page.header.title %}
+                        <div class="header">
+                            {{ page.header.title }}
+                        </div>
+                    {% endif %}
+                    {% if page.header.motto %}
+                        <div class="motto">
+                            {{ page.header.motto }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+        {% endblock card %}
+
+        {% if page.collection('featured')|length > 0 %}
+            {% for p in page.collection('featured')|slice(0,5) %}
+                <div class="book-page content wrap">
+                    {% include 'partials/book-feature.html.twig' with {'p':p,'reviews':show_reviews,'excerpts':show_excerpts} %}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

@@ -7,9 +7,10 @@
 {% endblock %}
 
 {% block content %}
-    {{ parent() }}
-    {% set collection = page.collection %}
-  <div class="content wrap default-page">
-    {{ content }}
-  </div>
+  {{ parent() }}
+    {% if content %}
+      <div class="content wrap default-page">
+        {{ content }}
+      </div>
+    {% endif %}
 {% endblock content %}

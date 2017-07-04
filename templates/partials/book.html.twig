@@ -1,6 +1,3 @@
-{% set reviews = reviews|default('true') %}
-{% set excerpt = excerpt|default('true') %}
-
 {% block information %}
 
     <div class="information row collapse">
@@ -23,43 +20,42 @@
 
 {% endblock information %}
 
-{% block excerpt %}
-    {% if p.header.excerpt and excerpt == 'true' %}
+{% if p.header.excerpt and excerpts %}
+    {% block excerpt %}
         <div class="excerpt">
             <p class="header">Excerpt</p>
             {{ p.header.excerpt|markdown }}
         </div>
-    {% endif %}
-{% endblock %}
+    {% endblock %}
+{% endif %}
 
-{% block reviews %}
-    {% if reviews == 'true' %}
-
-    <div class="reviews">
-        <div class="panel">
-            <div class="content orbit" role="region" aria-label="Reviews" data-orbit
-                 data-options="animInFromLeft:fade-in;animInFromRight:fade-in; animOutToLeft:fade-out;animOutToRight:fade-out;">
-                <ul class="orbit-container">
-                    <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
-                    <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
-                    {% for review in p.header.reviews %}
-                        <li class="orbit-slide review">
-                            {{ ('<i class="fa fa-quote-left fa-3x"></i>' ~ review.review)|markdown }}
-                            <p class="reviewer"> — {{ review.reviewer }}</p>
-                        </li>
-                    {% endfor %}
-                </ul>
-                <nav class="orbit-bullets">
-                    {% for review in p.header.reviews %}
-                        {% if loop.index0 == 0 %}
-                            <button class="is-active" data-slide="{{ loop.index0 }}"><span class="show-for-sr">A review of {{ p.title }} by {{ review.reviewer }}.</span><span class="show-for-sr">Current Slide</span></button>
-                        {% else %}
-                            <button data-slide="{{ loop.index0 }}"><span class="show-for-sr">A review of {{ p.title }} by {{ review.reviewer }}</span></button>
-                        {% endif %}
-                    {% endfor %}
-                </nav>
+{% if p.header.reviews|length > 0 and reviews %}
+    {% block reviews %}
+        <div class="reviews">
+            <div class="panel">
+                <div class="content orbit" role="region" aria-label="Reviews" data-orbit
+                     data-options="animInFromLeft:fade-in;animInFromRight:fade-in; animOutToLeft:fade-out;animOutToRight:fade-out;">
+                    <ul class="orbit-container">
+                        <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+                        <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+                        {% for review in p.header.reviews %}
+                            <li class="orbit-slide review">
+                                {{ ('<i class="fa fa-quote-left fa-3x"></i>' ~ review.review)|markdown }}
+                                <p class="reviewer"> — {{ review.reviewer }}</p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <nav class="orbit-bullets">
+                        {% for review in p.header.reviews %}
+                            {% if loop.index0 == 0 %}
+                                <button class="is-active" data-slide="{{ loop.index0 }}"><span class="show-for-sr">A review of {{ p.title }} by {{ review.reviewer }}.</span><span class="show-for-sr">Current Slide</span></button>
+                            {% else %}
+                                <button data-slide="{{ loop.index0 }}"><span class="show-for-sr">A review of {{ p.title }} by {{ review.reviewer }}</span></button>
+                            {% endif %}
+                        {% endfor %}
+                    </nav>
+                </div>
             </div>
         </div>
-    </div>
-    {% endif %}
-{% endblock reviews %}
+    {% endblock reviews %}
+{% endif %}

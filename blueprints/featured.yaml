@@ -1,0 +1,57 @@
+title: Featured
+@extends:
+  type: default
+  context: blueprints://pages
+
+form:
+  validation: loose
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+
+          fields:
+
+            header.title:
+              type: text
+              style: vertical
+              label: PLUGIN_ADMIN.TITLE
+
+            header.motto:
+              label: Motto
+              type: textarea
+              style: vertical
+              size: long
+              validate:
+                type: textarea
+
+            header.logo:
+              type: pagemediaselect
+              label: Logo Image
+
+            header.show_reviews:
+              type: toggle
+              label: Show Reviews
+              highlight: 1
+              default: 1
+              options:
+                1: Enabled
+                0: Disabled
+              validate:
+                type: bool
+
+            header.show_excerpts:
+              type: toggle
+              label: Show Excerpts
+              highlight: 1
+              default: 0
+              options:
+                1: Enabled
+                0: Disabled
+              validate:
+                type: bool

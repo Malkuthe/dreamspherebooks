@@ -3,10 +3,13 @@
 {% set collection = page.collection() %}
 
 {% block content %}
-    <div class="content wrap book-page booklist-page">
-        <div class="header">{{ page.title }}</div>
-        {{ page.content }}
-    </div>
+    {% if page.header.show_label or page.header.show_blurb %}
+        <div class="content wrap book-page booklist-page">
+            {% if page.header.show_label %}<div class="header">{{ page.title }}</div>{% endif %}
+            {% if page.header.show_blurb %}{{ page.content }}{% endif %}
+        </div>
+    {% endif %}
+
     {% for p in collection %}
         <div class="content wrap book-page">
             {% include 'partials/book.html.twig' with {'p':p,'reviews':'false','excerpt':'false'} %}

@@ -1,0 +1,39 @@
+title: Book List
+@extends:
+  type: default
+  context: blueprints://pages
+
+form:
+  validation: loose
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+
+          fields:
+
+            header.show_label:
+              type: toggle
+              label: Show Label
+              highlight: 1
+              default: 1
+              options:
+                1: Enabled
+                0: Disabled
+              validate:
+                type: bool
+            header.show_blurb:
+              type: toggle
+              label: Show Blurb
+              highlight: 1
+              default: 1
+              options:
+                1: Enabled
+                0: Disabled
+              validate:
+                type: bool

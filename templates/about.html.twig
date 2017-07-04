@@ -1,0 +1,39 @@
+{% extends 'default.html.twig' %}
+
+{% block content %}
+
+  <div class="about">
+
+    {% block card %}
+
+      <div class="card wrap row" data-equalizer="card" data-equalize-on="large">
+        {% if page.header.logo %}
+          <div class="logo-container small-12 large-4 columns large-push-8" >
+            <div class="logo" data-equalizer-watch="card" >
+              <img src="/{{ page.slug }}/{{ page.header.logo }}" alt="{{ page.title ~ ' logo' }}" />
+            </div>
+          </div>
+        {% endif %}
+        <div class="content {{ page.header.logo ? 'small-12 large-8 large-pull-4' : 'small-12' }} columns" data-equalizer-watch="card" >
+          {% if page.header.title %}
+            <div class="header">
+              {{ page.header.title }}
+            </div>
+          {% endif %}
+          {% if page.header.motto %}
+            <div class="motto">
+              {{ page.header.motto }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+    {% endblock card %}
+
+    <div class="contant wrap">
+        {{ content }}
+    </div>
+
+  </div>
+
+{% endblock content %}

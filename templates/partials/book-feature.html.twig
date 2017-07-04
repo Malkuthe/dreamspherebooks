@@ -1,0 +1,24 @@
+{% extends 'partials/book.html.twig' %}
+
+{% block reviews %}
+    <div class="reviews row" data-equalizer="reviews">
+        {% set columns %}
+            {{ p.header.reviews|length < 3 and p.header.reviews|length > 0 ? 'large-' ~ ( 12 / p.header.reviews|length ) : 'large-4' }}
+        {% endset %}
+        {% for review in p.header.reviews|slice(0,3) %}
+            <div class="panel {{ columns }} small-12 columns" data-equalizer-watch="reviews">
+                <div class="content">
+                    <div class="review">
+                        {{review.review|length < 400 ? ('<i class="fa fa-quote-left fa-3x" aria-hidden="true" style="float:left;margin-right:0.5rem;line-height:1;"></i>' ~ review.review)|markdown : (('<i class="fa fa-quote-left fa-3x" aria-hidden="true" style="float:left;margin-right:0.5rem;line-height:1;"></i>' ~ review.review)|truncate(400,true) ~ '<a href="' ~ p.slug ~ '" class="readmore">...</a>')|markdown}}
+                    </div>
+                    {% if review.reviewer %}
+                        <p class="reviewer">
+                            — {{ review.reviewer }}
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock reviews %}

@@ -1,0 +1,72 @@
+.card {
+  font-size: 90%;
+  width: 80%;
+  @include breakpoint(medium down) {
+    width: 100%;
+  }
+
+  .logo-container {
+    padding: 0.2rem;
+    height: 100%;
+    content: ' ';
+    display: block;
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 80%;
+        height: auto;
+        margin-right: auto;
+        margin-left: auto;
+        @include breakpoint(medium down) {
+          width: 50%;
+        }
+      }
+
+    }
+
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    @include breakpoint(medium down) {
+      margin-top: 8vh;
+    }
+
+    .header {
+      color: $colors-header-text;
+      text-shadow: 0 0 3px $colors-header-glow;
+      font-size: 275%;
+      text-align: left;
+      text-transform: uppercase;
+      @include breakpoint(medium down) {
+        text-align: center;
+      }
+    }
+
+    .motto {
+      color: $colors-header-text;
+      font-style: italic;
+      font-size: 150%;
+      text-align: left;
+      text-transform: uppercase;
+      font-weight: 800;
+      @include breakpoint(medium down) {
+        text-align: center;
+      }
+    }
+
+    .blurb {
+
+    }
+
+  }
+
+}

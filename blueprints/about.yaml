@@ -1,4 +1,4 @@
-title: Frontpage
+title: About
 @extends:
   type: default
   context: blueprints://pages
@@ -16,40 +16,17 @@ form:
           title: PLUGIN_ADMIN.CONTENT
 
           fields:
-            header.monster:
-              classes: frontmatter
-              type: editor
-              label: Data
-              autofocus: true
-              codemirror:
-                mode: 'yaml frontmatter'
-                indentUnit: 4
-                autofocus: true
-                indentWithTabs: false
-                lineNumbers: true
-                styleActiveLine: true
-                gutters: ['CodeMirror-lint-markers']
-                lint: true
 
             header.title:
               type: text
               style: vertical
               label: PLUGIN_ADMIN.TITLE
 
-            content:
-              @unset: true
-
             header.motto:
               label: Motto
               type: textarea
               style: vertical
               size: long
-              validate:
-                type: textarea
-
-            header.blurb:
-              label: Blurb
-              type: markdown
               validate:
                 type: textarea
 
