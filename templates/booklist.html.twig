@@ -12,7 +12,7 @@
 
     {% for p in collection %}
         <div class="content wrap book-page">
-            {% include 'partials/book.html.twig' with {'p':p,'reviews':'false','excerpt':'false'} %}
+            {% include 'partials/book.html.twig' with {'p':p,'reviews':page.header.show_reviews,'excerpt':page.header.show_excerpts} %}
         </div>
     {% endfor %}
 
