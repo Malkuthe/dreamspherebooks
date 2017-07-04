@@ -37,3 +37,25 @@ form:
                 0: Disabled
               validate:
                 type: bool
+
+            header.show_reviews:
+              type: toggle
+              label: Show Reviews
+              highlight: 1
+              default: 0
+              options:
+                1: Enabled
+                0: Disabled
+              validate:
+                type: bool
+
+            header.show_excerpts:
+              type: toggle
+              label: Show Excerpts
+              highlight: 1
+              default: 0
+              options:
+                1: Enabled
+                0: Disabled
+              validate:
+                type: bool
